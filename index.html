@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&amp;family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-custom fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Recipe</a>
+            <div class="d-flex align-items-center">
+                <i class="fa-solid fa-heart fa-2x text-white-50 me-3 make-pointer" id="favorites-menu"></i>
+                <i class="fa-solid fa-bars fa-2x text-white-50 translate make-pointer" id="control-menu"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- menu options -->
+    <div class="menu shadow-lg bg-dark text-white-50 col-md-4 position-fixed" id="menu">
+        <ul class="list-unstyled" id="menu-list">
+        </ul>
+    </div>
+
+    <!-- home -->
+    <div class="home vh-100 overflow-hidden"> <!-- Added overflow-hidden to prevent scrolling -->
+        <div class="layer w-100 h-100 d-flex justify-content-center align-items-center flex-wrap">
+            <div class="container">
+                <div class="row justify-content-center w-100"> <!-- Added w-100 and justify-content-center to ensure correct centering -->
+                    <div class="col-sm-8 position-relative"> <!-- Position-relative added to avoid the overflow of suggestions -->
+                        <input type="text" class="form-control" id="search-bar" placeholder="Search for a recipe...">
+                        <!-- suggested recipes will be shown here -->
+                        <ul id="suggestions-list" class="list-group position-absolute w-100"></ul>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <button class="btn btn-success w-50" id="search-btn">
+                            <i class="fa-solid fa-search fa-1x"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- recipes -->
+    <div class="recipes-container container-fluid py-5 bg-dark">
+        <div class="row g-4" id="recipes-container">
+        </div>
+    </div>
+
+    <div class="recipe-details-container d-none" id="recipe-details-container">
+        <div class="card w-75 mx-auto my-5 shadow-lg" id="recipeOrder-box">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h2 id="recipe-title" class="mb-0"></h2>
+                <button id="close-btn" class="btn btn-danger">Close</button>
+            </div>
+            <div class="card-body">
+                <img id="recipe-img" class="w-100 mb-3" alt="Recipe Image">
+                <h4 id="recipe-publisher" class="text-muted"></h4>
+                <h5>Ingredients:</h5>
+                <ul id="ingredients-list" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- favorite recipes -->
+    <div class="favorites-panel shadow-lg bg-light text-dark col-12 col-sm-6 col-md-4 position-fixed" id="favorites-panel">
+       <div class="container py-5">
+           <h2>Your Favorite Recipes</h2>
+           <div class="row g-4" id="favorites-container">
+               <!-- favorite recipes will be dynamically inserted here -->
+           </div>
+       </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

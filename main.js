@@ -87,8 +87,6 @@ const apiRequest = (url, callback) => {
         if (api.readyState === 4) {
             if (api.status === 200) {
                 callback(JSON.parse(api.response));
-            } else {
-                alert("Error fetching data. Please try again.");
             }
         }
     });
